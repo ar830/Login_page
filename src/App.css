@@ -1,38 +1,186 @@
-.App {
+/* App.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.main {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  max-width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-group {
+  margin-bottom: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+.react-datepicker-wrapper input {
+  width: 100%;
+  padding: 15px 0;
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d1d3e2;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+.react-datepicker-wrapper input:focus {
+  border-bottom: 2px solid #764ba2;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-3px);
+}
+
+/* Modal Overlay */
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay with opacity */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 1000; /* Ensure the modal is above other elements */
+  transition: opacity 0.3s ease; /* Smooth fade-in transition */
 }
 
-.App-link {
-  color: #61dafb;
+/* Modal Container */
+.Modal {
+  background: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 30px; /* Inner padding */
+  max-width: 500px; /* Max width for the modal */
+  width: 90%; /* Responsive width */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  animation: slideIn 0.4s ease-out; /* Slide-in animation */
+  z-index: 1001; /* Ensure modal content is above overlay */
 }
 
-@keyframes App-logo-spin {
+/* Slide-in animation for the modal */
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+    transform: translateY(-20px);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+/* Modal Header */
+.Modal h2 {
+  margin-top: 0; /* No margin at the top */
+  font-size: 24px; /* Larger font for the title */
+  font-weight: 600; /* Bold font */
+  color: #333; /* Darker text color */
+  border-bottom: 2px solid #f1f1f1; /* Light bottom border */
+  padding-bottom: 15px; /* Padding below the header */
+}
+
+/* Modal Content */
+.Modal p {
+  margin: 15px 0; /* Margin between paragraphs */
+  font-size: 16px; /* Standard font size */
+  color: #555; /* Medium-dark text color */
+  line-height: 1.5; /* Better line spacing */
+}
+
+/* Close Button */
+.Modal button {
+  background: #007bff; /* Primary blue color */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded button corners */
+  font-size: 16px; /* Font size for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 20px; /* Space above the button */
+  transition: background 0.3s ease; /* Smooth background color transition */
+}
+
+/* Close Button Hover Effect */
+.Modal button:hover {
+  background: #0056b3; /* Darker blue on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .Modal {
+    padding: 20px; /* Less padding on smaller screens */
+  }
+
+  .Modal h2 {
+    font-size: 20px; /* Smaller title font size */
+  }
+
+  .Modal p {
+    font-size: 14px; /* Smaller content font size */
+  }
+
+  .Modal button {
+    font-size: 14px; /* Smaller button font size */
+    padding: 8px 16px; /* Adjust padding */
+  }
+}
+
